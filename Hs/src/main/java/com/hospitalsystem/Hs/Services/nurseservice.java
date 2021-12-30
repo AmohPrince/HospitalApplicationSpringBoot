@@ -6,4 +6,6 @@ public interface nurseservice {
 
 	public Patients addpatient(Patients patient);
 
+	public String deletePatientById(int id);
+
 }

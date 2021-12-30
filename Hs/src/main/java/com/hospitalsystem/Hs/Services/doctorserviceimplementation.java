@@ -27,11 +27,6 @@ public class doctorserviceimplementation implements Doctorservice {
 
 	// Add a new nurse
 
-	public Nurse addNurse(Nurse nurse) {
-
-		return nurserepository.save(nurse);
-	}
-
 	@Override
 	public List<Nurse> getAllNurses(Nurse nurse) {
 

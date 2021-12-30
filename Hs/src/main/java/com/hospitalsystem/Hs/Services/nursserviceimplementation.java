@@ -18,4 +18,11 @@ public class nursserviceimplementation implements nurseservice {
 
 	}
 
+	public String deletePatientById(int id) {
+
+		patientrepository.deleteById(id);
+
+		return "Deleted patient";
+	}
+
 }

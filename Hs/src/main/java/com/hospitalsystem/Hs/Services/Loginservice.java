@@ -9,8 +9,10 @@ public interface Loginservice {
 
 	public Nurse addNurse(Nurse nurse);
 
-	public Doctor addTempDoctor(Doctor doctor);
+	public boolean checkNurseRegStatus(int id);
 
-	public Nurse addTempNurse(Nurse nurse);
+	public boolean checkDocRegStatus(int id);
+
+	public int setPassword(int id);
 
 }

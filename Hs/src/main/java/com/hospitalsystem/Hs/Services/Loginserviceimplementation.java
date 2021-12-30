@@ -1,5 +1,7 @@
 package com.hospitalsystem.Hs.Services;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,32 +29,50 @@ public class Loginserviceimplementation implements Loginservice {
 
 	}
 
-	/*
-	 * public boolean checkDocRegStatus(int id) {
-	 * 
-	 * boolean registered = true;
-	 * 
-	 * ArrayList<Object> currentdoctors = new ArrayList<Object>();
-	 * currentdoctors.add(loginrepositorydoctor.findAll());
-	 * currentdoctors.stream().filter()
-	 * 
-	 * }
-	 * 
-	 * public boolean checkNurseRegStatus(int id) {
-	 * 
-	 * }
-	 */
+	public boolean checkDocRegStatus(int id) {
+		boolean registered = true;
 
-	// Temporarily saving a doctor
-	public Doctor addTempDoctor(Doctor doctor) {
+		ArrayList<Object> currentDoctors = new ArrayList<Object>();
+		currentDoctors.add(loginrepositorydoctor.findAll());
+		// currentdoctors.stream().filter(doctor );
 
-		return loginrepositorydoctor.save(doctor);
+		for (int index = 0; index < currentDoctors.size(); index++) {
+			Object Doctor = currentDoctors.get(id);
+
+			if (Doctor != null) {
+				registered = true;
+				System.out.println(Doctor);
+			} else {
+				registered = false;
+			}
+		}
+		return registered;
 	}
 
-	// Temporarily saving a nurse
-	public Nurse addTempNurse(Nurse nurse) {
+	public boolean checkNurseRegStatus(int id) {
+		boolean registered = true;
 
-		return loginrepositorynurse.save(nurse);
+		ArrayList<Object> currentNurses = new ArrayList<Object>();
+
+		for (int index = 0; index < currentNurses.size(); index++) {
+			Object Nurse = currentNurses.get(id);
+
+			if (Nurse != null) {
+				registered = true;
+				System.out.println(Nurse);
+			} else {
+				registered = false;
+			}
+		}
+
+		return registered;
+
+	}
+
+	@Override
+	public int setPassword(int id) {
+
+		return 0;
 	}
 
 }

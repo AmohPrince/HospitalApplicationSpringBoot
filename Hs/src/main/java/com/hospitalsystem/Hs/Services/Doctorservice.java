@@ -10,11 +10,7 @@ public interface Doctorservice {
 	// get a list of patients
 	public List<Patients> getAllPatients(Patients patient);
 
-	// add new nurse
-	public Nurse addNurse(Nurse nurse);
-
 	// get all nurses
-
 	public List<Nurse> getAllNurses(Nurse nurse);
 
 }
