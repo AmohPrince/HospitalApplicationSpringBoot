@@ -1,5 +1,8 @@
-package com.hospitalsystem.Hs.controller;
+package com.hospitalsystem.Hs;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,10 +14,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class Securityconfiguration extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+
+	DataSource datasource;
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("admin").password("administrator").roles("ADMIN").and()
-				.withUser("Samuel").password("Samuelito").roles("USER");
+		auth.jdbcAuthentication().dataSource(datasource)
+				.usersByUsernameQuery("select username, password, enabled from users where username = ?")
+				.authoritiesByUsernameQuery("select username, authority from authorities where username=?");
 
 	}
 
