@@ -7,19 +7,59 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.hospitalsystem.Hs.entities.User;
+import com.hospitalsystem.Hs.entities.Users;
 
 public class Myuserdetails implements UserDetails {
 
-	private String username;
+	private int id;
+	private String userName;
 	private String password;
 	private Boolean active;
+	private Boolean isAccountNonExpired;
+	private Boolean isAccountNonLocked;
+	private Boolean isCredentialsNonExpired;
 
-	public Myuserdetails(User user) {
+	public Myuserdetails(Users user) {
 		super();
-		this.username = user.getPassword();
+		this.userName = user.getPassword();
 		this.password = user.getPassword();
 		this.active = user.isEnabled();
+		this.id = user.getId();
+		this.isAccountNonExpired = user.isAccountNonExpired();
+		this.isAccountNonLocked = user.isAccountNonLocked();
+		this.isCredentialsNonExpired = user.isCredentialsNonExpired();
+	}
+
+	public Boolean getIsAccountNonExpired() {
+		return isAccountNonExpired;
+	}
+
+	public void setIsAccountNonExpired(Boolean isAccountNonExpired) {
+		this.isAccountNonExpired = isAccountNonExpired;
+	}
+
+	public Boolean getIsAccountNonLocked() {
+		return isAccountNonLocked;
+	}
+
+	public void setIsAccountNonLocked(Boolean isAccountNonLocked) {
+		this.isAccountNonLocked = isAccountNonLocked;
+	}
+
+	public Boolean getIsCredentialsNonExpired() {
+		return isCredentialsNonExpired;
+	}
+
+	public void setIsCredentialsNonExpired(Boolean isCredentialsNonExpired) {
+		this.isCredentialsNonExpired = isCredentialsNonExpired;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
@@ -37,7 +77,7 @@ public class Myuserdetails implements UserDetails {
 	@Override
 	public String getUsername() {
 
-		return username;
+		return userName;
 	}
 
 	@Override

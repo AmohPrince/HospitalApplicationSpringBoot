@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.hospitalsystem.Hs.entities.User;
+import com.hospitalsystem.Hs.entities.Users;
 import com.hospitalsystem.Hs.sequel.Userrepository;
 
 @Service
@@ -18,8 +18,8 @@ public class Myuserdetailsservice implements UserDetailsService {
 	Userrepository userrepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<User> user = userrepository.findByUserName(username);
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		Optional<Users> user = userrepository.findByUserName(userName);
 		user.orElseThrow(() -> new UsernameNotFoundException("Not Found"));
 		return user.map(Myuserdetails::new).get();
 	}

@@ -1,22 +1,44 @@
 package com.hospitalsystem.Hs.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 
-@Table(name = "users")
-public class User {
+public class Users {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String username;
+	private String userName;
 	private String password;
 	private boolean enabled;
+	private boolean isAccountNonExpired;
+	private boolean isAccountNonLocked;
+	private boolean isCredentialsNonExpired;
+
+	public boolean isAccountNonExpired() {
+		return isAccountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean isAccountNonExpired) {
+		this.isAccountNonExpired = isAccountNonExpired;
+	}
+
+	public boolean isAccountNonLocked() {
+		return isAccountNonLocked;
+	}
+
+	public void setAccountNonLocked(boolean isAccountNonLocked) {
+		this.isAccountNonLocked = isAccountNonLocked;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return isCredentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean isCredentialsNonExpired) {
+		this.isCredentialsNonExpired = isCredentialsNonExpired;
+	}
 
 	public int getId() {
 		return id;
@@ -26,12 +48,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String username) {
+		this.userName = username;
 	}
 
 	public String getPassword() {
