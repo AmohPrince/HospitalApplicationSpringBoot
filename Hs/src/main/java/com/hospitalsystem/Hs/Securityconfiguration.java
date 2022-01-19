@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,14 +19,21 @@ public class Securityconfiguration extends WebSecurityConfigurerAdapter {
 
 	DataSource datasource;
 
+	@Autowired
+	UserDetailsService userDetailsService;
+
+	// This is for authentication
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().dataSource(datasource)
-				.usersByUsernameQuery("select username, password, enabled from users where username = ?")
-				.authoritiesByUsernameQuery("select username, authority from authorities where username=?");
+		auth.userDetailsService(userDetailsService);
+
+//		auth.jdbcAuthentication().dataSource(datasource)
+//				.usersByUsernameQuery("select username, password, enabled from users where username = ?")
+//				.authoritiesByUsernameQuery("select username, authority from authorities where username=?");
 
 	}
 
+	// This is for authorization
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/Admin").hasRole("ADMIN").antMatchers("/User").hasAnyRole("USER", "ADMIN")
