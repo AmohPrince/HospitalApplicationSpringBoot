@@ -1,16 +1,14 @@
 package com.hospitalsystem.Hs.auth;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="user")
 public class User {
     @Id
     @Column(name = "id")
-    private long id ;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id ;
     @Column(name = "user_name" , nullable = false , unique = true)
     private String username;
     @Column(name = "password")
@@ -20,7 +18,7 @@ public class User {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
