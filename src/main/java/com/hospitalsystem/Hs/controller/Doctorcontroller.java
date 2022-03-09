@@ -3,9 +3,7 @@ package com.hospitalsystem.Hs.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.hospitalsystem.Hs.Services.Doctorservice;
 import com.hospitalsystem.Hs.entities.Nurse;
@@ -15,25 +13,37 @@ import com.hospitalsystem.Hs.entities.Patients;
 @RequestMapping("/doctor")
 public class Doctorcontroller {
 
-	@Autowired
-	Doctorservice doctorservice;
+    @Autowired
+    Doctorservice doctorservice;
 
-	@GetMapping("/getallpatients")
-	public List<Patients> getallpatients(Patients patient) {
+    @GetMapping("/getallpatients")
+    public List<Patients> getallpatients(Patients patient) {
 
-		return doctorservice.getAllPatients(patient);
-	}
+        return doctorservice.getAllPatients(patient);
+    }
 
-	@GetMapping("/getallnurses")
-	public List<Nurse> getAllNurses(Nurse nurse) {
-		return doctorservice.getAllNurses(nurse);
+    @PostMapping("/addnewnurse")
+    public String addNewNurse(@RequestBody Nurse nurse) {
+        doctorservice.addNewNurse(nurse);
+        return "A new nurse is added";
+    }
 
-	}
+    @GetMapping("/getallnurses")
+    public List<Nurse> getAllNurses(Nurse nurse) {
+        return doctorservice.getAllNurses(nurse);
 
-	@GetMapping("/test")
-	public String test() {
-		return "Doctor Controller is Up";
+    }
 
-	}
+    @RequestMapping(method = RequestMethod.DELETE, value = "{id}")
+    public String deleteNurseById(@PathVariable int id) {
+        return doctorservice.deleteNurseById(id);
+
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Doctor Controller is Up";
+
+    }
 
 }

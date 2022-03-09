@@ -9,20 +9,20 @@ import com.hospitalsystem.Hs.sequel.Patientrepository;
 @Service
 public class nursserviceimplementation implements nurseservice {
 
-	@Autowired
-	Patientrepository patientrepository;
+    @Autowired
+    Patientrepository patientrepository;
 
-	public Patients addpatient(Patients patient) {
+    public Patients addpatient(Patients patient) {
 
-		return patientrepository.save(patient);
+        return patientrepository.save(patient);
 
-	}
+    }
 
-	public String deletePatientById(int id) {
+    public String deletePatientById(int id) {
 
-		patientrepository.deleteById(id);
+        patientrepository.deleteById(id);
 
-		return "Deleted patient";
-	}
+        return "Deleted patient of id  " + id;
+    }
 
 }

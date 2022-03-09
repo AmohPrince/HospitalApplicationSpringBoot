@@ -33,4 +33,16 @@ public class doctorserviceimplementation implements Doctorservice {
 		return nurserepository.findAll();
 	}
 
+	@Override
+	public Nurse addNewNurse(Nurse nurse) {
+		return nurserepository.save(nurse);
+	}
+
+	@Override
+	public String deleteNurseById(int id) {
+		nurserepository.deleteById(id);
+
+		return "deleted Nurse of id " + id;
+	}
+
 }

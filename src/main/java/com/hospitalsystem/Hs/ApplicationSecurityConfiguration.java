@@ -9,6 +9,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -25,12 +26,12 @@ import java.util.List;
 //@Order(101)
 public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
-    private  HsUserDetailsService hsUserDetailsService;
+    private HsUserDetailsService hsUserDetailsService;
 
 
     //JDBC AUTHENTICATION
     @Bean
-   public DaoAuthenticationProvider daoAuthenticationProvider () {
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(hsUserDetailsService);
         provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
@@ -44,10 +45,10 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http .csrf()
+        http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/")
+                .antMatchers("/", "/css/**", "/js/**", "/media/**")
                 .permitAll().anyRequest()
                 .authenticated()
                 .and()
@@ -55,7 +56,10 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
 
     }
 
-
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/**");
+    }
 
 
 //    //InMemoryAuthentication

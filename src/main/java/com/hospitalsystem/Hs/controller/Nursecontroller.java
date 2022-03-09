@@ -19,36 +19,36 @@ import com.hospitalsystem.Hs.entities.Patients;
 @RequestMapping("/nurse")
 public class Nursecontroller {
 
-	@Autowired
-	nurseservice nurseservice;
+    @Autowired
+    nurseservice nurseservice;
 
-	@Autowired
-	Doctorservice doctorservice;
+    @Autowired
+    Doctorservice doctorservice;
 
-	@PostMapping("/addpatients")
-	public String addpatients(@RequestBody Patients patient) {
+    @PostMapping("/addpatients")
+    public String addpatients(@RequestBody Patients patient) {
 
-		nurseservice.addpatient(patient);
-		return "New Patient is added";
+        nurseservice.addpatient(patient);
+        return "New Patient is added";
 
-	}
+    }
 
-	@GetMapping("/getallpatients")
-	public List<Patients> getAllPatients(Patients patient) {
+    @GetMapping("/getallpatients")
+    public List<Patients> getAllPatients(Patients patient) {
 
-		return doctorservice.getAllPatients(patient);
+        return doctorservice.getAllPatients(patient);
 
-	}
+    }
+	
+    @RequestMapping(method = RequestMethod.DELETE, value = "{id}")
+    public String deletePatientById(@PathVariable int id) {
+        return nurseservice.deletePatientById(id);
+    }
 
-	@RequestMapping(method = RequestMethod.DELETE, value = "{id}")
-	public String deletePatientById(@PathVariable int id) {
-		return nurseservice.deletePatientById(id);
-	}
+    @GetMapping("/test")
+    public String test() {
+        return "Nurse Controller Is Up";
 
-	@GetMapping("/test")
-	public String test() {
-		return "Nurse Controller Is Up";
-
-	}
+    }
 
 }

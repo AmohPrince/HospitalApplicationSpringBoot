@@ -7,10 +7,14 @@ import com.hospitalsystem.Hs.entities.Patients;
 
 public interface Doctorservice {
 
-	// get a list of patients
-	public List<Patients> getAllPatients(Patients patient);
+    // get a list of patients
+    public List<Patients> getAllPatients(Patients patient);
 
-	// get all nurses
-	public List<Nurse> getAllNurses(Nurse nurse);
+    // get all nurses
+    public List<Nurse> getAllNurses(Nurse nurse);
+
+    public Nurse addNewNurse(Nurse nurse);
+
+    public String deleteNurseById(int id);
 
 }
