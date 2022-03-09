@@ -11,8 +11,8 @@
     <groupId>com.hospitalsystem</groupId>
     <artifactId>Hs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Hs</name>
-    <description>Demo project for HospitalSystem</description>
+    <name>Hospital Management Application</name>
+    <description>Project for a HospitalSystem</description>
     <properties>
         <java.version>17</java.version>
         <!--        <frontend-src-dir>${project.basedir}/src/main/reactfrontend</frontend-src-dir>-->
@@ -33,28 +33,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--		H2database for in memory authentication-->
-        <!--		<dependency>-->
-        <!--			<groupId>com.h2database</groupId>-->
-        <!--			<artifactId>h2</artifactId>-->
-        <!--		</dependency>-->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -64,6 +52,24 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+            <version>2.3.10.RELEASE</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--		H2database for in memory authentication-->
+        <!--		<dependency>-->
+        <!--			<groupId>com.h2database</groupId>-->
+        <!--			<artifactId>h2</artifactId>-->
+        <!--		</dependency>-->
+
+
         <!--        <dependency>-->
         <!--            <groupId>org.projectlombok</groupId>-->
         <!--            <artifactId>lombok</artifactId>-->
