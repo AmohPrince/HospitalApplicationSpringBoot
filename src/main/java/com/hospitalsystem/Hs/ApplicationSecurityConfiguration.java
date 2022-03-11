@@ -23,7 +23,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity
-//@Order(101)
+@Order(101)
 public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private HsUserDetailsService hsUserDetailsService;
@@ -54,11 +54,6 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 .and()
                 .httpBasic();
 
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**");
     }
 
 

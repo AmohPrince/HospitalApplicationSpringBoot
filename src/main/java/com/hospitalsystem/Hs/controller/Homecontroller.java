@@ -9,10 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class Homecontroller {
 
-    @GetMapping("/") // Accessed by both users and admins.Literally everyone
-    public String home() {
-        return ("<h1>Welcome To Hospital Application<h1/>");
-    }
+//    @GetMapping("/") // Accessed by both users and admins.Literally everyone
+//    public String home() {
+//        return ("<h1>Welcome To Hospital Application<h1/>");
+//    }
 
     @GetMapping("/User") // Accessed by both users and admin
     public String user() {
@@ -27,15 +27,4 @@ public class Homecontroller {
     }
 
 
-//    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    public String getHomePage() {
-//        return "index";
-//    }
-
-
-//    @GetMapping("/")
-//    public ModelAndView home() {
-//        ModelAndView mav = new ModelAndView("index");
-//        return mav;
-//    }
 }
