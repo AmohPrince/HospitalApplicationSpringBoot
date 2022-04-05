@@ -1,18 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import Assets from "../../../Assets/Assets";
 import "./Date.css";
 
-const getCurrentTimes = () => {
-  return;
-};
-
-let currentDate = moment().format("d MMMM YYYY");
-let currentTime = moment().format(" h:mm:ss ");
-let amOrPm = moment().format("a");
-
 const Date = () => {
-  useEffect(() => {}, []);
+  const [currentDate, setCurrentDate] = useState();
+  const [currentTime, setcurrentTime] = useState();
+  const [amOrPm, setamOrPm] = useState();
+
+  const setCurrents = () => {
+    setCurrentDate(moment().format("d MMMM YYYY"));
+    setcurrentTime(moment().format(" h:mm:ss "));
+    setamOrPm(moment().format("a"));
+  };
+
+  const updateTimes = () => {
+    setTimeout(() => {
+      setCurrents();
+      updateTimes();
+    }, 1000);
+  };
+
+  useEffect(() => {
+    setCurrents();
+    updateTimes();
+  }, []);
+
   return (
     <div className="Date flex__container-v">
       {amOrPm === "pm" ? (
