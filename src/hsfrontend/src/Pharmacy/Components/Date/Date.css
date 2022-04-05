@@ -1,0 +1,13 @@
+.Date__greeting {
+  font-weight: 600;
+  color: var(--black);
+  font-size: 1.2rem;
+  margin-left: 20px;
+}
+.Date__btm > :first-child {
+  margin-right: 54px;
+}
+.Date__btm > * {
+  font-size: 0.8rem;
+  color: var(--black);
+}
