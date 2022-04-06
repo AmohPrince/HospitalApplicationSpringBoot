@@ -9,7 +9,7 @@ const Date = () => {
   const [amOrPm, setamOrPm] = useState();
 
   const setCurrents = () => {
-    setCurrentDate(moment().format("d MMMM YYYY"));
+    setCurrentDate(moment().format("dddd D MMMM YYYY"));
     setcurrentTime(moment().format(" h:mm:ss "));
     setamOrPm(moment().format("a"));
   };
