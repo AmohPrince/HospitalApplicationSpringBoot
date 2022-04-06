@@ -1,0 +1,18 @@
+.RightTab {
+  padding: 15px 20px;
+  cursor: pointer;
+  position: relative;
+}
+.RightTab p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-left: 20px;
+}
+.RightTab.active {
+  background-color: var(--primaryGreen);
+}
+.dropdown__icon {
+  position: absolute;
+  right: 20px;
+}
