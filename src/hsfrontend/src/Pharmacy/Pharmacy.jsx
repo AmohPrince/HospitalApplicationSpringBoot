@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Pharmacy.css";
 import Assets from "../Assets/Assets";
 import Date from "./Components/Date/Date";
@@ -10,46 +10,50 @@ same as the name*/
 /* This user details are going to be dynamic. Find a way for the user to upload
 their photo and name. The status will be computed */
 
-const toggleProfile = () => {
-  const profile = document.querySelector(".User__details-showprofile");
-  profile.classList.toggle("active");
-};
-
-const handleDashBoardClick = () => {
-  const element = document.querySelector(".RightTab");
-  element.classList.toggle("active");
-};
-const handleInventoryClick = () => {
-  const element1 = document.querySelector(".RightTab");
-  element1.classList.toggle("active");
-};
-const handleReportsClick = () => {
-  const element2 = document.querySelector(".RightTab");
-  element2.classList.toggle("active");
-};
-
-const dataArray = [
-  {
-    name: "Dashboard",
-    icon: Assets.Dashboard,
-    dropDown: false,
-    onClick: handleDashBoardClick,
-  },
-  {
-    name: "Inventory",
-    icon: Assets.Inventory,
-    dropDown: true,
-    onClick: handleInventoryClick,
-  },
-  {
-    name: "Reports",
-    icon: Assets.Reports,
-    dropDown: true,
-    onClick: handleReportsClick,
-  },
-];
-
 const Pharmacy = () => {
+  const [activeTab, setactiveTab] = useState("");
+
+  const toggleProfile = () => {
+    const profile = document.querySelector(".User__details-showprofile");
+    profile.classList.toggle("active");
+  };
+
+  const handleDashBoardClick = () => {
+    setactiveTab("dashboard");
+    const element = document.querySelector(".dashboard");
+    element.classList.toggle("active");
+  };
+  const handleInventoryClick = () => {
+    setactiveTab("inventory");
+    const element = document.querySelectorAll(".inventory");
+    element[1].classList.toggle("active");
+  };
+  const handleReportsClick = () => {
+    setactiveTab("reports");
+    const element = document.querySelectorAll(".reports");
+    element[2].classList.toggle("active");
+  };
+
+  const dataArray = [
+    {
+      name: "Dashboard",
+      icon: Assets.Dashboard,
+      dropDown: false,
+      onClick: handleDashBoardClick,
+    },
+    {
+      name: "Inventory",
+      icon: Assets.Inventory,
+      dropDown: true,
+      onClick: handleInventoryClick,
+    },
+    {
+      name: "Reports",
+      icon: Assets.Reports,
+      dropDown: true,
+      onClick: handleReportsClick,
+    },
+  ];
   return (
     <div className="Pharmacy ">
       {/* Aside Section Begins Here */}
@@ -85,11 +89,11 @@ const Pharmacy = () => {
             </div>
           </div>
           {/* Dashboard */}
-          <RightTab data={dataArray[0]} />
+          <RightTab data={dataArray[0]} activeTab={activeTab} />
           {/* Inventory */}
-          <RightTab data={dataArray[1]} />
+          <RightTab data={dataArray[1]} activeTab={activeTab} />
           {/* Reports */}
-          <RightTab data={dataArray[2]} />
+          <RightTab data={dataArray[2]} activeTab={activeTab} />
         </div>
       </aside>
       {/* Right section begins here */}

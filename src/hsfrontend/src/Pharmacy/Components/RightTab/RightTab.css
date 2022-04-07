@@ -9,9 +9,16 @@
   color: var(--white);
   margin-left: 20px;
 }
-.RightTab.active {
+.dashboard.active {
   background-color: var(--primaryGreen);
 }
+.inventory.active {
+  background-color: var(--primaryGreen);
+}
+.reports.active {
+  background-color: var(--primaryGreen);
+}
+
 .dropdown__icon {
   position: absolute;
   right: 20px;
