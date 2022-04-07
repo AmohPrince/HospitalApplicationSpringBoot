@@ -4,7 +4,6 @@ import Assets from "../Assets/Assets";
 import Date from "./Components/Date/Date";
 import ProfileOn from "./Components/ProfileOn/ProfileOn";
 import RightTab from "./Components/RightTab/RightTab";
-import { act } from "react-dom/test-utils";
 
 /*The logo may be dynamic . Like on user upload it should change necessarilly
 same as the name*/
@@ -12,85 +11,47 @@ same as the name*/
 their photo and name. The status will be computed */
 
 const Pharmacy = () => {
-  const [dashBoard, setDashBoard] = useState();
-  const [inventory, setInventory] = useState();
-  const [reports, setReports] = useState();
-  const [configuration, setConfiguration] = useState();
-  const [contact, setContact] = useState();
-  const [notifications, setNotifications] = useState();
-  const [chat, setChat] = useState();
-  const [application, setApplication] = useState();
-  const [covid, setCovid] = useState();
-  const [techHelp, setTechHelp] = useState();
-
   const [onTab, setOnTab] = useState("");
-
-  useEffect(() => {
-    findElements();
-  }, []);
 
   const toggleProfile = () => {
     const profile = document.querySelector(".User__details-showprofile");
     profile.classList.toggle("active");
   };
 
-  const findElements = () => {
-    setDashBoard(document.querySelector(".Dashboard"));
-    setInventory(document.querySelector(".Inventory"));
-    setReports(document.querySelector(".Reports"));
-    setConfiguration(document.querySelector(".Configuration"));
-    setContact(document.querySelector(".Contact"));
-    setNotifications(document.querySelector(".Notifications"));
-    setChat(document.querySelector(".Chat"));
-    setApplication(document.querySelector(".Application"));
-    setCovid(document.querySelector(".Covid-19"));
-    setTechHelp(document.querySelector(".Get"));
-  };
-
   const handleDashBoardClick = () => {
-    dashBoard.classList.toggle("active");
     setOnTab("dash");
   };
   const handleInventoryClick = () => {
-    inventory.classList.toggle("active");
     setOnTab("invent");
   };
   const handleReportsClick = () => {
-    reports.classList.toggle("active");
     setOnTab("repo");
   };
   const handleContactManagementClick = () => {
-    contact.classList.toggle("active");
     setOnTab("cont");
   };
 
   const handleConfigurationClick = () => {
-    configuration.classList.toggle("active");
     setOnTab("conf");
   };
 
   const handleNotificationsClick = () => {
-    notifications.classList.toggle("active");
     setOnTab("not");
   };
 
   const handleChatClick = () => {
-    chat.classList.toggle("active");
     setOnTab("chat");
   };
 
   const handleSettingsClick = () => {
-    application.classList.toggle("active");
     setOnTab("set");
   };
 
   const handleCovidClick = () => {
-    covid.classList.toggle("active");
     setOnTab("cov");
   };
 
   const handleTechnicalClick = () => {
-    techHelp.classList.toggle("active");
     setOnTab("tech");
   };
 

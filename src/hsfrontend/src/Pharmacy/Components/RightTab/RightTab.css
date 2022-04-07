@@ -10,34 +10,34 @@
   margin-left: 20px;
 }
 
-.dashDashboard.active {
+.dashDashboard {
   background-color: var(--primaryGreen);
 }
-.inventInventory.active {
+.inventInventory {
   background-color: var(--primaryGreen);
 }
-.repoReports.active {
+.repoReports {
   background-color: var(--primaryGreen);
 }
-.confConfiguration.active {
+.confConfiguration {
   background-color: var(--primaryGreen);
 }
-.contContact.active {
+.contContact {
   background-color: var(--primaryGreen);
 }
-.notNotifications.active {
+.notNotifications {
   background-color: var(--primaryGreen);
 }
-.chatChat.active {
+.chatChat {
   background-color: var(--primaryGreen);
 }
-.setApplication.active {
+.setApplication {
   background-color: var(--primaryGreen);
 }
-.covCovid-19.active {
+.covCovid-19 {
   background-color: var(--primaryGreen);
 }
-.techGet.active {
+.techGet {
   background-color: var(--primaryGreen);
 }
 
