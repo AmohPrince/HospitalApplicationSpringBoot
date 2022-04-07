@@ -4,6 +4,7 @@ import Assets from "../Assets/Assets";
 import Date from "./Components/Date/Date";
 import ProfileOn from "./Components/ProfileOn/ProfileOn";
 import RightTab from "./Components/RightTab/RightTab";
+import { act } from "react-dom/test-utils";
 
 /*The logo may be dynamic . Like on user upload it should change necessarilly
 same as the name*/
@@ -22,18 +23,7 @@ const Pharmacy = () => {
   const [covid, setCovid] = useState();
   const [techHelp, setTechHelp] = useState();
 
-  var classNames = [
-    "dashboard",
-    "inventory",
-    "reports",
-    "configuration",
-    "contact",
-    "notifications",
-    "chat",
-    "application",
-    "covid",
-    "techhelp",
-  ];
+  const [onTab, setOnTab] = useState("");
 
   useEffect(() => {
     findElements();
@@ -45,46 +35,64 @@ const Pharmacy = () => {
   };
 
   const findElements = () => {
-    setDashBoard(document.querySelector(".dashboard"));
-    setInventory(document.querySelectorAll(".inventory"));
-    setReports(document.querySelectorAll(".reports"));
-    setConfiguration(document.querySelectorAll(".configuration"));
-    setContact(document.querySelectorAll(".contact"));
-    setNotifications(document.querySelectorAll(".notifications"));
-    setChat(document.querySelectorAll(".chat"));
-    setApplication(document.querySelectorAll(".application"));
-    setCovid(document.querySelectorAll(".covid"));
-    setTechHelp(document.querySelectorAll(".techhelp"));
+    setDashBoard(document.querySelector(".Dashboard"));
+    setInventory(document.querySelector(".Inventory"));
+    setReports(document.querySelector(".Reports"));
+    setConfiguration(document.querySelector(".Configuration"));
+    setContact(document.querySelector(".Contact"));
+    setNotifications(document.querySelector(".Notifications"));
+    setChat(document.querySelector(".Chat"));
+    setApplication(document.querySelector(".Application"));
+    setCovid(document.querySelector(".Covid-19"));
+    setTechHelp(document.querySelector(".Get"));
   };
 
   const handleDashBoardClick = () => {
     dashBoard.classList.toggle("active");
-    inventory[1].classList.remove("active");
-    reports[2].classList.remove("active");
+    setOnTab("dash");
   };
   const handleInventoryClick = () => {
-    inventory[1].classList.toggle("active");
-    dashBoard.classList.remove("active");
-    reports[2].classList.remove("active");
+    inventory.classList.toggle("active");
+    setOnTab("invent");
   };
   const handleReportsClick = () => {
-    reports[2].classList.toggle("active");
-    inventory[1].classList.remove("active");
-    dashBoard.classList.remove("active");
+    reports.classList.toggle("active");
+    setOnTab("repo");
   };
-  const handleContactManagementClick = () => {};
+  const handleContactManagementClick = () => {
+    contact.classList.toggle("active");
+    setOnTab("cont");
+  };
 
-  const handleConfigurationClick = () => {};
+  const handleConfigurationClick = () => {
+    configuration.classList.toggle("active");
+    setOnTab("conf");
+  };
 
-  const handleNotificationsClick = () => {};
+  const handleNotificationsClick = () => {
+    notifications.classList.toggle("active");
+    setOnTab("not");
+  };
 
-  const handleChatClick = () => {};
+  const handleChatClick = () => {
+    chat.classList.toggle("active");
+    setOnTab("chat");
+  };
 
-  const handleSettingsClick = () => {};
+  const handleSettingsClick = () => {
+    application.classList.toggle("active");
+    setOnTab("set");
+  };
 
-  const handleCovidClick = () => {};
+  const handleCovidClick = () => {
+    covid.classList.toggle("active");
+    setOnTab("cov");
+  };
 
-  const handleTechnicalClick = () => {};
+  const handleTechnicalClick = () => {
+    techHelp.classList.toggle("active");
+    setOnTab("tech");
+  };
 
   const dataArray = [
     {
@@ -116,6 +124,7 @@ const Pharmacy = () => {
       icon: Assets.ContactIco,
       dropDown: true,
       onClick: handleContactManagementClick,
+      topLine: true,
     },
     {
       name: "Notifications",
@@ -134,6 +143,7 @@ const Pharmacy = () => {
       icon: Assets.SettingsIco,
       dropDown: false,
       onClick: handleSettingsClick,
+      spaceBelow: true,
     },
     {
       name: "Covid-19",
@@ -182,28 +192,9 @@ const Pharmacy = () => {
               </div>
             </div>
           </div>
-          {/* Dashboard */}
-          <RightTab data={dataArray[0]} />
-          {/* Inventory */}
-          <RightTab data={dataArray[1]} />
-          {/* Reports */}
-          <RightTab data={dataArray[2]} />
-          {/* Configuration */}
-          <RightTab data={dataArray[3]} />
-          <div className="splitter" />
-          {/* Contact Management */}
-          <RightTab data={dataArray[4]} />
-          {/* Notifications */}
-          <RightTab data={dataArray[5]} />
-          {/* Chat */}
-          <RightTab data={dataArray[6]} />
-          {/* Application Settings */}
-          <div className="space" />
-          <RightTab data={dataArray[7]} />
-          {/* Covid */}
-          <RightTab data={dataArray[8]} />
-          {/* Technical Help */}
-          <RightTab data={dataArray[9]} />
+          {dataArray.map((data) => (
+            <RightTab data={data} key={data.name} onTab={onTab} />
+          ))}
         </div>
       </aside>
       {/* Right section begins here */}
