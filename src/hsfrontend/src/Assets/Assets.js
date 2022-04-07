@@ -12,8 +12,22 @@ import Dashboard from "./DashboardIcon.svg";
 import Inventory from "./Inventory.svg";
 import Reports from "./ReportsIcon.svg";
 import Arrow from "./Arrow.svg";
+import Configuration from "./Configuration.svg";
+import ContactIco from "./ContactManagement.svg";
+import Bell from "./Bell.svg";
+import ChatIco from "./ChatIcon.svg";
+import SettingsIco from "./Settings.svg";
+import CovidIco from "./Covid.svg";
+import QuestionIco from "./QuestionIcon.svg";
 
 export default {
+  ChatIco,
+  SettingsIco,
+  CovidIco,
+  QuestionIco,
+  Bell,
+  Configuration,
+  ContactIco,
   Arrow,
   Inventory,
   Reports,

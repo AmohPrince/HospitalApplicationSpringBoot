@@ -9,6 +9,7 @@
   color: var(--white);
   margin-left: 20px;
 }
+
 .dashboard.active {
   background-color: var(--primaryGreen);
 }
