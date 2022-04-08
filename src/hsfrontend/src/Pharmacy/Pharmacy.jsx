@@ -4,7 +4,18 @@ import Assets from "../Assets/Assets";
 import Date from "./Components/Date/Date";
 import ProfileOn from "./Components/ProfileOn/ProfileOn";
 import RightTab from "./Components/RightTab/RightTab";
-import Dashboard from "./Sections/Dashboard/Dashboard";
+import {
+  Dashboard,
+  Inventory,
+  Chat,
+  Covid,
+  Reports,
+  Configuration,
+  ContactManagement,
+  Notifications,
+  Settings,
+  TechHelp,
+} from "./Sections/Sections";
 
 /*The logo may be dynamic . Like on user upload it should change necessarilly
 same as the name*/
@@ -195,7 +206,36 @@ const Pharmacy = () => {
         </div>
 
         <div className="Pharmacy__body">
-          <Dashboard />
+          <div className={`Pharmacy__body-dash${onTab}`}>
+            <Dashboard />
+          </div>
+          <div className={`Pharmacy__body-invent${onTab}`}>
+            <Inventory />
+          </div>
+          <div className={`Pharmacy__body-repo${onTab}`}>
+            <Reports />
+          </div>
+          <div className={`Pharmacy__body-conf${onTab}`}>
+            <Configuration />
+          </div>
+          <div className={`Pharmacy__body-cont${onTab}`}>
+            <ContactManagement />
+          </div>
+          <div className={`Pharmacy__body-notf${onTab}`}>
+            <Notifications />
+          </div>
+          <div className={`Pharmacy__body-chat${onTab}`}>
+            <Chat />
+          </div>
+          <div className={`Pharmacy__body-set${onTab}`}>
+            <Settings />
+          </div>
+          <div className={`Pharmacy__body-cov${onTab}`}>
+            <Covid />
+          </div>
+          <div className={`Pharmacy__body-tech${onTab}`}>
+            <TechHelp />
+          </div>
         </div>
       </div>
     </div>
