@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import "./Pharmacy.css";
 import Assets from "../Assets/Assets";
