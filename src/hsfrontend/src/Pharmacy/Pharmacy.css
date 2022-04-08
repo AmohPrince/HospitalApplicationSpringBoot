@@ -90,6 +90,7 @@
 .User__details {
   justify-content: space-between;
   padding: 20px 15px;
+  padding-bottom: 10px;
 }
 
 .User__details-img {
@@ -134,4 +135,15 @@
 }
 .User__details-showprofile.active {
   display: block;
+}
+.Pharmacy__powered {
+  background-color: var(--black);
+  height: 30px;
+  padding: 7px;
+}
+.Pharmacy__powered > .p__poppins {
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
 }

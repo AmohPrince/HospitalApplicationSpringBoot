@@ -4,6 +4,7 @@ import Assets from "../Assets/Assets";
 import Date from "./Components/Date/Date";
 import ProfileOn from "./Components/ProfileOn/ProfileOn";
 import RightTab from "./Components/RightTab/RightTab";
+import Dashboard from "./Sections/Dashboard/Dashboard";
 
 /*The logo may be dynamic . Like on user upload it should change necessarilly
 same as the name*/
@@ -156,6 +157,9 @@ const Pharmacy = () => {
           {dataArray.map((data) => (
             <RightTab data={data} key={data.name} onTab={onTab} />
           ))}
+          <div className="Pharmacy__powered">
+            <p className="p__poppins">Powered by Cash © 2022 </p>
+          </div>
         </div>
       </aside>
       {/* Right section begins here */}
@@ -191,10 +195,7 @@ const Pharmacy = () => {
         </div>
 
         <div className="Pharmacy__body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-          quisquam totam nisi deserunt perspiciatis rerum animi, possimus dolor
-          magnam voluptas tempore ullam facere explicabo? Nulla non laborum
-          iusto dolorem eligendi!
+          <Dashboard />
         </div>
       </div>
     </div>
