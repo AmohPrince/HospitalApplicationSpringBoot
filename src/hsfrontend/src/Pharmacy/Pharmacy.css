@@ -151,3 +151,8 @@
   font-weight: 400;
   text-align: center;
 }
+.Pharmacy__body {
+  height: 89.8%;
+  padding: 5%;
+  background-color: var(--lightGrey);
+}
